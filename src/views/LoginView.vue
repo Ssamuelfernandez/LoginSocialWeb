@@ -2,26 +2,32 @@
 
     <div class="container bg-light position-absolute top-50 start-50 translate-middle rounded-4 shadow">
 
-        <div v-if="view === 'login'" id="animationContainerLogin" class="container-login flip-vertical-right">
+        <div v-if="view === 'login'" id="animationContainerLogin" class="container-login flip-vertical-right h-100">
 
-            <div class="row align-items-start">
+            <div class="row h-100">
 
-                <div class="col-lg-6 bg-primary p-3">
+                <div class="col-lg-7 bg-secondary p-3 rounded-start-4 h-100">
 
-                    <div class="bg-light p-3 rounded-4 shadow">
+                    <div class="bg-light p-3 rounded-4 shadow h-100">
 
                         <form action="#">
 
-                            <h2 class="text-center mb-3">Login</h2>
+                            <h1 class="text-center mb-4">Sign in</h1>
+                            <div class="social-container">
+                                <a href="#" class="social"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social"><i class="bi bi-google"></i></a>
+                    <a href="#" class="social"><i class="bi bi-twitter"></i></a>
+                </div>
+                <span>or use your account</span>
                             <div class="mb-3 d-flex">
-                                <span class="input-group-text"><i class="bi bi-person"></i></span>
-                                <input type="email" class="form-control" placeholder="email">
+                                <span class="input-group-text" style="background: transparent; border: transparent;"><i class="bi bi-person"></i></span>
+                                <input type="email" class="form-control" placeholder="Email">
                             </div>
 
                             <div class="mb-3 d-flex">
                                 <span class="input-group-text" style="background: transparent; border: transparent;"><i
                                         class="bi bi-key"></i></span>
-                                <input type="password" class="form-control" placeholder="password"
+                                <input type="password" class="form-control" placeholder="Password"
                                     style="background-color: rgb(233, 233, 233); border: transparent;">
                             </div>
 
@@ -36,9 +42,8 @@
                                 </div>
                             </div>
 
-                            <button type="submit">Login</button>
+                            <button type="submit">Sign in</button>
 
-                            <a type="button" @click="changeRoute('register')" id="startAnimationButtonLogin" class="btn btn-primary">Go to Register</a>
                         </form>
 
                     </div>
@@ -47,9 +52,11 @@
 
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-5">
 
-                    <h2 class="text-center">Otro lado</h2>
+                    <h2 class="text-center">Let's be friends!</h2>
+
+                    <a type="button" @click="changeRoute('register')" id="startAnimationButtonLogin" class="btn btn-primary">Sign up</a>
 
                 </div>
 
@@ -63,7 +70,10 @@
 
             <div class="col-lg-6">
 
-                <h2 class="text-center">Otro lado</h2>
+                <h2 class="text-center">Welcome Back!</h2>
+
+                <button type="button" id="startAnimationButtonRegister" class="btn btn-primary" @click="changeRoute('login')">Sign in</button>
+
 
             </div>
 
@@ -73,7 +83,14 @@
 
                     <form action="#">
 
-                        <h2 class="text-center mb-3">register</h2>
+                        <h2 class="text-center mb-3">Create Account</h2>
+                        <div class="social-container">
+                    <a href="#" class="social"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social"><i class="bi bi-google"></i></a>
+                    <a href="#" class="social"><i class="bi bi-twitter"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+
                         <div class="mb-3 d-flex">
                             <span class="input-group-text"><i class="bi bi-person"></i></span>
                             <input type="email" class="form-control" placeholder="email">
@@ -89,9 +106,7 @@
 
 
 
-                        <button type="submit">Register</button>
-
-                        <button type="button" id="startAnimationButtonRegister" class="btn btn-primary" @click="changeRoute('login')">Go to Login</button>
+                        <button type="submit">Sign up</button>
                     </form>
 
                 </div>
