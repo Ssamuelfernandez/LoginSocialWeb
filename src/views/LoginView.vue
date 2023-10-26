@@ -2,23 +2,28 @@
     <div class="container position-absolute top-50 start-50 translate-middle rounded-4 shadow"
         style="background-color: rgb(222, 228, 236);">
 
-        <div v-if="view === 'login'" id="animationContainerLogin" class="container-login flip-vertical-right h-100">
+        <!--     Parte del login     -->
+
+        <div v-if="view === 'login'" id="animationContainerLogin" class="container-login h-100">
 
             <div class="row h-100">
 
-                <div class="col-lg-7 p-3 rounded-start-4 h-100">
+                <div class="col-sm-7 p-3 rounded-start-4 h-100">
 
                     <div class="bg-light p-2 rounded-4 shadow h-100">
 
                         <form action="#">
 
-                                <h1 class="text-center mt-1 mb-4">Sign in</h1>
-                            
-                            
+                            <h1 class="text-center mt-1 mb-4">Sign in</h1>
+
+
                             <div class="social-container mb-2">
-                                <span type="button" href="#" class="social"><font-awesome-icon :icon="['fab', 'facebook-f']" /></span>
-                                <span type="button" href="#" class="social"><font-awesome-icon :icon="['fab', 'google-plus-g']" /></span>
-                                <span type="button" href="#" class="social"><font-awesome-icon :icon="['fab', 'twitter']" /></span>
+                                <span type="button" href="#" class="social"><font-awesome-icon
+                                        :icon="['fab', 'facebook-f']" /></span>
+                                <span type="button" href="#" class="social"><font-awesome-icon
+                                        :icon="['fab', 'google-plus-g']" /></span>
+                                <span type="button" href="#" class="social"><font-awesome-icon
+                                        :icon="['fab', 'twitter']" /></span>
                             </div>
                             <div class="text-center">
                                 <span>or use your account:</span>
@@ -28,13 +33,13 @@
                                 <span class="input-group-text"
                                     style="background: transparent; border: transparent;"><font-awesome-icon
                                         :icon="['fas', 'envelope']" /></span>
-                                <input type="email" class="custom-form-control" placeholder="Email">
+                                <input type="email" class="custom-form-control" placeholder="Email*">
                             </div>
                             <div class="mb-3 d-flex custom-input">
                                 <span class="input-group-text"
                                     style="background: transparent; border: transparent;"><font-awesome-icon
                                         :icon="['fas', 'lock']" /></span>
-                                <input type="password" class="custom-form-control" placeholder="Password">
+                                <input type="password" class="custom-form-control" placeholder="Password*">
                             </div>
 
 
@@ -44,15 +49,15 @@
                                     <label for="checkbox">Remember me</label>
                                 </div>
                                 <div class="pass-link text-center mx-auto">
-                                    <a type="button" @click="changeRoute('forgot')">Forget password?</a>
+                                    <a type="button" @click="changeRoute('forgot'); activateAnimation('login') ">Forget password?</a>
                                 </div>
-                            
+
                             </div>
 
                             <div class="text-center mb-2">
                                 <button class="custom-button" type="submit">Sign in</button>
                             </div>
-                            
+
 
 
                         </form>
@@ -63,42 +68,44 @@
 
                 </div>
 
-                <div class="col-lg-5 p-3 d-flex flex-column align-items-center justify-content-end h-100">
+                <div class="col-sm-5 p-3 d-flex flex-column align-items-center justify-content-center h-100">
 
                     <div class="text-center mx-auto">
                         <h3>Let's be friends!!</h3>
                     </div>
-                       
+
 
                     <div class="text-center mx-auto">
                         <p>Be part of our great community, have fun time with us!!</p>
                     </div>
 
                     <div class="text-center mx-auto">
-                        <button type="button" @click="changeRoute('register')" class="custom-button">Sign up</button>
+                        <button type="button" @click="activateAnimation('login'); changeRoute('register') " class="custom-button">Sign up</button>
                     </div>
 
-         
-                        <div class="mx-auto" ref="animationTarget"></div>
-                     
 
-        
+                    <div class="mx-auto" ref="animationTarget"></div>
 
-            
-                   
-                    
+
+
+
+
+
+
                 </div>
 
             </div>
 
         </div>
 
+        <!--     Parte del register     -->
+
         <div v-else-if="view === 'register'" id="animationContainerRegister"
-            class="container-register flip-vertical-left h-100">
+            class="container-register h-100">
 
             <div class="row h-100">
 
-                <div class="col-lg-5 p-3 d-flex flex-column align-items-center justify-content-end h-100">
+                <div class="col-sm-5 p-3 d-flex flex-column align-items-center justify-content-center h-100">
 
                     <div class="text-center mx-auto">
                         <h2 class="text-center">Welcome Back!</h2>
@@ -109,8 +116,9 @@
                     </div>
 
 
-                        <div class="text-center mx-auto">
-                            <button type="button" id="startAnimationButtonRegister" class="custom-button" @click="changeRoute('login')">Sign in</button>
+                    <div class="text-center mx-auto">
+                        <button type="button" id="startAnimationButtonRegister" class="custom-button"
+                            @click="activateAnimation('register'); changeRoute('login')">Sign in</button>
                     </div>
 
                     <div class="mx-auto" ref="animationTarget2"></div>
@@ -118,7 +126,7 @@
 
                 </div>
 
-                <div class="col-lg-7 p-3 h-100">
+                <div class="col-sm-7 p-3 h-100">
 
                     <div class="bg-light p-3 rounded-4 shadow h-100">
 
@@ -134,34 +142,36 @@
                             <div class="text-center">
                                 <span>or use your email:</span>
                             </div>
-                            
+
 
                             <div class="mb-2 d-flex custom-input">
                                 <span class="input-group-text"
                                     style="background: transparent; border: transparent;"><font-awesome-icon
                                         :icon="['fas', 'user']" /></span>
-                                <input type="text" class="custom-form-control" placeholder="Name">
+                                <input type="text" class="custom-form-control" placeholder="Name*">
                             </div>
 
                             <div class="mb-2 d-flex custom-input">
                                 <span class="input-group-text"
                                     style="background: transparent; border: transparent;"><font-awesome-icon
                                         :icon="['fas', 'envelope']" /></span>
-                                <input type="email" class="custom-form-control" placeholder="Email">
+                                <input type="email" class="custom-form-control" placeholder="Email*">
                             </div>
                             <div class="mb-3 d-flex custom-input">
                                 <span class="input-group-text"
                                     style="background: transparent; border: transparent;"><font-awesome-icon
                                         :icon="['fas', 'lock']" /></span>
-                                <input type="password" class="custom-form-control" placeholder="Password">
+                                <input type="password" class="custom-form-control" placeholder="Password*">
                             </div>
 
                             <div class="content d-flex mx-auto">
                                 <div class="checkbox mb-3 ms-2 mx-auto">
                                     <input type="checkbox" class="form-check-input mx-1" name="checkbox" id="checkbox">
-                                    <label for="checkbox">I agree to the <a class="link-offset-2 link-underline link-underline-opacity-0 link-secondary" href="#">social web</a> terms</label>
+                                    <label for="checkbox">I agree to the <a
+                                            class="link-offset-2 link-underline link-underline-opacity-0 link-secondary"
+                                            href="#">social web</a> terms</label>
                                 </div>
-                            
+
                             </div>
 
                             <div class="text-center mb-2">
@@ -180,36 +190,67 @@
 
         </div>
 
-        <div v-else-if="view === 'forgot'" id="animationContainerForgot" class="container-forgot flip-vertical-left">
+        <!--     Parte del forgot password     -->
 
-            <div class="row align-items-start">
+        <div v-else-if="view === 'forgot'" id="animationContainerForgot" class="container-forgot h-100">
 
-                <div class="col-lg-6">
+            <div class="row h-100">
 
-                    <h2 class="text-center">Otro lado</h2>
+                <div class="col-sm-5 p-3 d-flex flex-column align-items-center justify-content-center h-100">
+
+                    <div class="text-center mx-auto">
+                        <h2 class="text-center">Welcome Back!</h2>
+                    </div>
+
+                    <div class="text-center mx-auto">
+                        <p>Hey, Enter your details to login to your account</p>
+                    </div>
+
+
+                    <div class="text-center mx-auto">
+                        <button type="button" id="startAnimationButtonRegister" class="custom-button"
+                            @click="activateAnimation('forgot'); changeRoute('login')">Sign in</button>
+                    </div>
+
+                    <div class="mx-auto" ref="animationTarget2"></div>
+
 
                 </div>
 
-                <div class="col-lg-6 bg-primary p-3">
+                <div class="col-sm-7 p-3 h-100">
 
-                    <div class="bg-light p-3 rounded-4 shadow">
+                    <div class="bg-light p-3 rounded-4 shadow h-100">
 
                         <form action="#">
 
-                            <h2 class="text-center mb-3">Cambio contraseña</h2>
+                            <h2 class="text-center mt-1 mb-4">Reset password</h2>
+
+                            <div class="text-center mb-4">
+                        <p>We can help you with your password!!</p>
+                    </div>
+
+                            <div class="mb-3 d-flex custom-input">
+                                <span class="input-group-text"
+                                    style="background: transparent; border: transparent;"><font-awesome-icon
+                                        :icon="['fas', 'envelope']" /></span>
+                                <input type="email" class="custom-form-control" placeholder="Email*">
+                            </div>
 
 
-                            <button type="button" id="startAnimationButtonRegister" class="btn btn-primary"
-                                @click="changeRoute('login')">Go to Login</button>
+                            <div class="text-center mb-2">
+                                <button class="custom-button" type="submit">Reset</button>
+                            </div>
+
                         </form>
 
                     </div>
 
+
+
                 </div>
 
-
-
             </div>
+
 
         </div>
 
@@ -224,6 +265,7 @@ import lottie from 'lottie-web';
 
 import animacion1 from '../assets/animation2.json';
 import animacion2 from '../assets/animation1.json';
+import animacion3 from '../assets/animation3.json';
 
 const animationTarget = ref(null);
 const animationTarget2 = ref(null);
@@ -234,9 +276,40 @@ const router = useRouter();
 
 
 const changeRoute = (newView) => {
-    view.value = newView;
-    router.push({ name: newView }); // Cambiar la ruta al hacer clic
+
+    setTimeout(() => {
+
+        view.value = newView; 
+        router.push({ name: newView }); // Cambiar la ruta al hacer clic
+        
+    }, 1750);
+
+    
+
 };
+
+const activateAnimation = (animationView) => {
+    
+    if (animationView === 'login') {
+        const loginAnimation = document.getElementById('animationContainerLogin');
+        loginAnimation.classList.add('flip-vertical-right');
+        
+    };
+    
+    if (animationView === 'register') {
+        const registerAnimation = document.getElementById('animationContainerRegister');
+        registerAnimation.classList.add('flip-vertical-left');
+        
+    };
+
+    if (animationView === 'forgot') {
+        const registerAnimation = document.getElementById('animationContainerForgot');
+        registerAnimation.classList.add('flip-vertical-left');
+};
+
+};
+
+
 
 onMounted(() => {
 
@@ -265,7 +338,7 @@ function loadAnimation(target, animationData) {
 // Vuelve a cargar y reproducir la animación cuando 'view' cambia
 watch(view, () => {
 
-    
+
     loadAnimation(animationTarget, animacion1);
     loadAnimation(animationTarget2, animacion2);
 });
@@ -294,16 +367,22 @@ watch(view, () => {
     align-items: center;
     width: 50px;
     height: 50px;
-    border:2px solid rgb(74, 104, 161); /* Cambiamos background-color a border y establecemos un ancho y color para el borde */
-    border-radius: 50%; /* Esto crea el círculo */
+    border: 2px solid rgb(74, 104, 161);
+    /* Cambiamos background-color a border y establecemos un ancho y color para el borde */
+    border-radius: 50%;
+    /* Esto crea el círculo */
     margin: 0 18px;
-    color: rgb(74, 104, 161); /* Color del icono */
-    font-size: 25px; /* Tamaño del icono */
+    color: rgb(74, 104, 161);
+    /* Color del icono */
+    font-size: 25px;
+    /* Tamaño del icono */
 }
 
 .social:hover {
-    border:2px solid #525252; /* Cambiamos background-color a border y establecemos un ancho y color para el borde */
-    color: #525252; /* Color del icono */
+    border: 2px solid #525252;
+    /* Cambiamos background-color a border y establecemos un ancho y color para el borde */
+    color: #525252;
+    /* Color del icono */
 }
 
 .custom-input {
@@ -320,33 +399,44 @@ watch(view, () => {
     border: none;
     outline: none;
     padding: 0.5rem;
-    border-bottom: 1.5px solid rgb(74, 104, 161); /* Agrega la línea solo debajo del campo de texto */
-    flex-grow: 1; /* Permite que el campo de texto ocupe todo el espacio restante */
+    border-bottom: 1.5px solid rgb(74, 104, 161);
+    /* Agrega la línea solo debajo del campo de texto */
+    flex-grow: 1;
+    /* Permite que el campo de texto ocupe todo el espacio restante */
     margin-right: 25px;
 }
 
 .custom-button {
-  padding: 7px 40px; /* Ajusta el ancho y alto del botón según tu preferencia */
-  border: 2px solid rgb(74, 104, 161); /* Establece el grosor y color del borde */
-  border-radius: 10px; /* Agrega bordes redondeados si lo deseas */
-  background-color: transparent; /* Fondo transparente */
-  transition: background-color 0.3s; /* Agrega una transición al color de fondo */
+    padding: 7px 40px;
+    /* Ajusta el ancho y alto del botón según tu preferencia */
+    border: 2px solid rgb(74, 104, 161);
+    /* Establece el grosor y color del borde */
+    border-radius: 10px;
+    /* Agrega bordes redondeados si lo deseas */
+    background-color: transparent;
+    /* Fondo transparente */
+    transition: background-color 0.3s;
+    /* Agrega una transición al color de fondo */
 
-  /* Estilos cuando se pasa el cursor por encima del botón */
-  &:hover {
-    background-color: rgb(74, 104, 161); /* Cambia el color de fondo al pasar el cursor */
-    border: 2px solid #ccc;
-    color: #fff; /* Cambia el color del texto al pasar el cursor */
-  }
+    /* Estilos cuando se pasa el cursor por encima del botón */
+    &:hover {
+        background-color: rgb(74, 104, 161);
+        /* Cambia el color de fondo al pasar el cursor */
+        border: 2px solid #ccc;
+        color: #fff;
+        /* Cambia el color del texto al pasar el cursor */
+    }
 }
 
 .form-check-input[type=checkbox] {
     border: 1.5px solid #525252;
     box-shadow: none;
 }
+
 .form-check-input[type=checkbox]:checked {
     background-color: rgb(74, 104, 161);
 }
+
 .form-check-input[type=checkbox]:hover {
     box-shadow: 0 0 5px rgb(74, 104, 161);
 }
@@ -354,22 +444,27 @@ watch(view, () => {
 .pass-link {
     color: rgb(74, 104, 161);
 }
+
 .pass-link:hover {
     color: #525252;
 }
 
 .flip-vertical-right {
-    animation: flip-vertical-right 1.5s cubic-bezier(0.950, 0.050, 0.795, 0.035) alternate-reverse both;
+    animation: flip-vertical-right 2s cubic-bezier(0.950, 0.050, 0.795, 0.035) both;
 }
 
 .flip-vertical-left {
-    animation: flip-vertical-left 1.5s cubic-bezier(0.950, 0.050, 0.795, 0.035) alternate-reverse both;
+    animation: flip-vertical-left 2s cubic-bezier(0.950, 0.050, 0.795, 0.035) both;
 }
 
 
 @keyframes flip-vertical-right {
     0% {
         transform: rotateY(0);
+    }
+
+    50% {
+        transform: rotateY(90deg);
     }
 
     100% {
@@ -380,6 +475,10 @@ watch(view, () => {
 @keyframes flip-vertical-left {
     0% {
         transform: rotateY(0);
+    }
+
+    50% {
+        transform: rotateY(-90deg);
     }
 
     100% {
