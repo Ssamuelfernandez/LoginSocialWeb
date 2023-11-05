@@ -84,7 +84,7 @@
                     </div>
 
 
-                    <div class="mx-auto" ref="animationTarget"></div>
+                    <div class="mx-auto" id="animationId1" ref="animationTarget"></div>
 
 
 
@@ -259,7 +259,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watch, onUpdated } from 'vue';
 import { useRouter } from 'vue-router';
 import lottie from 'lottie-web';
 
@@ -335,13 +335,30 @@ function loadAnimation(target, animationData) {
     });
 }
 
-// Vuelve a cargar y reproducir la animación cuando 'view' cambia
-watch(view, () => {
+onUpdated( () => {
 
+  
+    if(view.value === 'login'){
+        console.log('primero');
 
-    loadAnimation(animationTarget, animacion1);
-    loadAnimation(animationTarget2, animacion2);
+        loadAnimation(animationTarget, animacion1);
+    }else if(view.value === 'register'){
+        loadAnimation(animationTarget2, animacion2);
+    }
 });
+
+// Vuelve a cargar y reproducir la animación cuando 'view' cambia
+// watch(view, () => {
+
+// console.log('Cambio')
+
+// if(view.value === 'login'){
+//         loadAnimation(animationTarget, animacion1);
+//     }else if(view.value === 'register'){
+//         loadAnimation(animationTarget2, animacion2);
+//     }
+
+// });
 
 
 
