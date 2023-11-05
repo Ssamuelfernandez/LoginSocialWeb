@@ -1,0 +1,101 @@
+
+.social-container {
+    display: flex;
+    align-items: center;
+    /* Centra verticalmente los elementos */
+    justify-content: center;
+    /* Centra horizontalmente los elementos */
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgb(74, 104, 161);
+    /* Cambiamos background-color a border y establecemos un ancho y color para el borde */
+    border-radius: 50%;
+    /* Esto crea el círculo */
+    margin: 0 18px;
+    color: rgb(74, 104, 161);
+    /* Color del icono */
+    font-size: 25px;
+    /* Tamaño del icono */
+}
+
+.social:hover {
+    border: 2px solid #525252;
+    /* Cambiamos background-color a border y establecemos un ancho y color para el borde */
+    color: #525252;
+    /* Color del icono */
+}
+
+.animacion {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.custom-input {
+    display: flex;
+    align-items: center;
+}
+
+.input-group-text {
+    color: rgb(74, 104, 161);
+}
+
+.custom-form-control {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    border-bottom: 1.5px solid rgb(74, 104, 161);
+    /* Agrega la línea solo debajo del campo de texto */
+    flex-grow: 1;
+    /* Permite que el campo de texto ocupe todo el espacio restante */
+    margin-right: 25px;
+}
+
+.custom-button {
+    padding: 7px 40px;
+    /* Ajusta el ancho y alto del botón según tu preferencia */
+    border: 2px solid rgb(74, 104, 161);
+    /* Establece el grosor y color del borde */
+    border-radius: 10px;
+    /* Agrega bordes redondeados si lo deseas */
+    background-color: transparent;
+    /* Fondo transparente */
+    transition: background-color 0.3s;
+    /* Agrega una transición al color de fondo */
+
+    /* Estilos cuando se pasa el cursor por encima del botón */
+    &:hover {
+        background-color: rgb(74, 104, 161);
+        /* Cambia el color de fondo al pasar el cursor */
+        border: 2px solid #ccc;
+        color: #fff;
+        /* Cambia el color del texto al pasar el cursor */
+    }
+}
+
+.form-check-input[type=checkbox] {
+    border: 1.5px solid #525252;
+    box-shadow: none;
+}
+
+.form-check-input[type=checkbox]:checked {
+    background-color: rgb(74, 104, 161);
+}
+
+.form-check-input[type=checkbox]:hover {
+    box-shadow: 0 0 5px rgb(74, 104, 161);
+}
+
+.pass-link {
+    color: rgb(74, 104, 161);
+}
+
+.pass-link:hover {
+    color: #525252;
+}
